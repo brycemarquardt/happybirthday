@@ -1,23 +1,7 @@
-// trigger to play music in the background with sweetalert
+// start animations on load
 window.addEventListener('load', () => {
-    Swal.fire({
-        title: 'Do you want to play music in the background?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes',
-        cancelButtonText: 'No',
-    }).then((result) => {
-        if (result.isConfirmed) {
-            document.querySelector('.song').play();
-            animationTimeline();
-        } else {
-            animationTimeline();
-        }
-    });
+    animationTimeline();
 });
-
 
 // animation timeline
 const animationTimeline = () => {
@@ -136,6 +120,9 @@ const animationTimeline = () => {
             y: 50,
             z: 10,
             opacity: 0,
+            onStart: () => {
+                document.querySelector('.song').play();
+            }
         },
         "+=1.5"
     )
@@ -238,17 +225,6 @@ const animationTimeline = () => {
             skewX: "-15deg",
         },
         "party"
-    )
-    .staggerTo(
-        ".eight svg",
-        1.5, {
-            visibility: "visible",
-            opacity: 0,
-            scale: 80,
-            repeat: 3,
-            repeatDelay: 1.4,
-        },
-        0.3
     )
     .to(".six", 0.5, {
         opacity: 0,
