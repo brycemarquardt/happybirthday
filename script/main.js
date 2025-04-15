@@ -35,7 +35,14 @@ const animationTimeline = () => {
     const tl = new TimelineMax();
 
     tl.to(".container", 0.6, {
-        visibility: "visible"
+        visibility: "visible",
+        onStart: () => {
+            try {
+                document.querySelector('.intro-song').play();
+            } catch (error) {
+                console.error("Error playing intro song:", error);
+            }
+        }
     })
     .from(".one", 0.7, {
         opacity: 0,
@@ -51,14 +58,14 @@ const animationTimeline = () => {
             opacity: 0,
             y: 10
         },
-    "+=3.5")
+        "+=3.5")
     .to(".two",
         0.7,
         {
             opacity: 0,
             y: 10
         },
-    "-=1")
+        "-=1")
     .from(".three", 0.7, {
         opacity: 0,
         y: 10
@@ -69,7 +76,7 @@ const animationTimeline = () => {
             opacity: 0,
             y: 10
         },
-    "+=3")
+        "+=3")
     .from(".four", 0.7, {
         scale: 0.2,
         opacity: 0,
@@ -83,12 +90,12 @@ const animationTimeline = () => {
         1.5, {
             visibility: "visible",
         },
-        0.05
+        0.028
     )
     .to(".fake-btn", 0.1, {
         backgroundColor: "rgb(127, 206, 248)",
     },
-    "+=4")
+        "+=1.9")
     .to(
         ".four",
         0.5, {
@@ -96,7 +103,7 @@ const animationTimeline = () => {
             opacity: 0,
             y: -150
         },
-    "+=1")
+        "+=1")
     .from(".idea-1", 0.7, ideaTextTrans)
     .to(".idea-1", 0.7, ideaTextTransLeave, "+=2.5")
     .from(".idea-2", 0.7, ideaTextTrans)
@@ -121,7 +128,11 @@ const animationTimeline = () => {
             z: 10,
             opacity: 0,
             onStart: () => {
-                document.querySelector('.song').play();
+                try {
+                    document.querySelector('.song').play();
+                } catch (error) {
+                    console.error("Error playing tysonsong:", error);
+                }
             }
         },
         "+=1.5"
@@ -196,7 +207,6 @@ const animationTimeline = () => {
         0.7, {
             opacity: 0,
             y: -50,
-            // scale: 0.3,
             rotation: 150,
             skewX: "30deg",
             ease: Elastic.easeOut.config(1, 0.5),
@@ -231,18 +241,12 @@ const animationTimeline = () => {
         y: 30,
         zIndex: "-1",
     })
-    .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
-    .to(
-        ".last-smile",
-        0.5, {
-            rotation: 90,
-        },
-        "+=1"
-    );
-
-    // Restart Animation on click
-    const replyBtn = document.getElementById("replay");
-    replyBtn.addEventListener("click", () => {
-        tl.restart();
+    .from(".url-display", 1, {
+        opacity: 0,
+        visibility: "hidden"
+    })
+    .to(".url-display", 1, {
+        opacity: 1,
+        visibility: "visible"
     });
 }
