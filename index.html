@@ -17,6 +17,12 @@
 
 <body>
 
+    <audio class="intro-song">
+        <source src="./music/intro.mp3">
+        </source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+
     <audio class="song" loop>
         <source src="./music/tysonsong.mp3">
         </source>
@@ -104,16 +110,18 @@
             </div>
         </div>
 
-        <div class="nine">
-            <p>Okay, now that we have your attention, are you up for some more?.</p>
-            <p id="replay">Or click HERE if you need a redo.</p>
-            <p class="last-smile">:)</p>
+        <div class="eight">
+            <button id="continue-btn">CONTINUE</button>
         </div>
+
+        <video id="birthday-video" class="birthday-video" controls style="display: none;">
+            <source src="./video/continue-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93052d827c4732e0',t:'MTc0NDY1NDQxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
     <!-- Greensock -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script type="application/javascript" src="./script/main.js"></script>
-
+</body>
 </html>
