@@ -158,6 +158,10 @@ body {
   font-weight: lighter;
 }
 
+.nine #more-fun {
+  visibility: hidden; /* Hide button initially */
+}
+
 #replay {
   cursor: pointer;
   z-index: 3;
