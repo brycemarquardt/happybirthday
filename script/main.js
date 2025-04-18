@@ -232,14 +232,6 @@ const animationTimeline = () => {
         opacity: 0,
         y: 30,
         zIndex: "-1",
-    })
-    .from(".url-display", 1, {
-        opacity: 0,
-        visibility: "hidden"
-    })
-    .to(".url-display", 1, {
-        opacity: 1,
-        visibility: "visible"
     });
 }
 
