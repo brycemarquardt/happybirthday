@@ -1,11 +1,4 @@
-// start animations on load
-window.addEventListener('load', () => {
-    animationTimeline();
-});
-
-// animation timeline
 const animationTimeline = () => {
-    // split chars that needs to be animated individually
     const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
     const hbd = document.getElementsByClassName("wish-hbd")[0];
 
@@ -31,7 +24,6 @@ const animationTimeline = () => {
         skewX: "-15deg"
     }
 
-    // timeline
     const tl = new TimelineMax();
 
     tl.to(".container", 0.6, {
@@ -250,3 +242,9 @@ const animationTimeline = () => {
         visibility: "visible"
     });
 }
+
+// Start button event listener
+document.getElementById('start-btn').addEventListener('click', () => {
+    document.querySelector('.start-screen').style.display = 'none';
+    animationTimeline();
+});
